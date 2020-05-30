@@ -4,79 +4,137 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Detalles</h2>
 
 <div>
-    <h4>Pet</h4>
+    <h4>Mascotas</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+    <dl class="dl-horizontal row">
+        <div class="col-md-6">
+            <table class="table table-primary table-striped">
+                <tbody>
+                    <tr>
+                        <td><strong>@Html.DisplayNameFor(model => model.Name)</strong></td>
+                        <td>@Html.DisplayFor(model => model.Name)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>@Html.DisplayNameFor(model => model.PetType)</strong></td>
+                        <td>@Html.DisplayFor(model => model.PetType)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>@Html.DisplayNameFor(model => model.Age)</strong></td>
+                        <td>@Html.DisplayFor(model => model.Age)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>@Html.DisplayNameFor(model => model.BirthDate)</strong></td>
+                        <td>@Html.DisplayFor(model => model.BirthDate)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>@Html.DisplayNameFor(model => model.Color)</strong></td>
+                        <td>@Html.DisplayFor(model => model.Color)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>@Html.DisplayNameFor(model => model.Race)</strong></td>
+                        <td>@Html.DisplayFor(model => model.Race)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>@Html.DisplayNameFor(model => model.Weight)</strong></td>
+                        <td>@Html.DisplayFor(model => model.Weight)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>@Html.DisplayNameFor(model => model.Height)</strong></td>
+                        <td>@Html.DisplayFor(model => model.Height)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        @*
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PetType)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.PetType)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.PetType)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.PetType)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Age)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Age)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Age)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Age)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.BirthDate)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.BirthDate)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.BirthDate)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.BirthDate)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Color)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Color)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Color)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Color)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Race)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Race)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Race)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Race)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Weight)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Weight)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Weight)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Weight)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Height)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Height)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Height)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Height)
+            </dd>
 
-    </dl>
+        </dl>
+        *@
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-primary">
+                    <h6 class="text-white">Mascota (Foto)</h6>
+                </div>
+                <div class="card-header">
+                    @if (Model.ImgUrl == null)
+                    {
+                        <img src="~/Content/img/persona.jpg" class="img-thumbnail" width="300" />
+                    }
+                    else if (Model.ImgUrl != null)
+                    {
+                        <img src="~/Content/img/@Model.ImgUrl" alt="Imagen no encontrada" width="250"  class="rounded border border-primary" />
+                    }
+                </div>
+            </div>
+        </div>
 </div>
+
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Regresar", "Index")
 </p>
